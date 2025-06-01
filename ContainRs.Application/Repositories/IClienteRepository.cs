@@ -1,9 +1,11 @@
-﻿using ContainRs.Domain.Models;
+﻿using System.Linq.Expressions;
+using ContainRs.Domain.Models;
 
 namespace ContainRs.Application.Repositories
 {
     public interface IClienteRepository
     {
         Task<Cliente> AddAsync(Cliente cliente);
+        Task<IEnumerable<Cliente>> GetAsync(Expression<Func<Cliente, bool>>? filtro = default); //Expression<Func<Cliente, bool>> representa uma condição usada para montar a clausula WHERE do SQL utilizando EF Core.
     }
 }
